@@ -151,4 +151,25 @@ $index++;
 }
 }
 
+//sanitize a single field, based on a single criteria
+private function _sanitize($name, $rule){
+if($rule=='normal'){
+$_POST[$name]=filter_var($_POST[$name], FILTER_SANITIZE_STRING);
+}
+if($rule=='email'){
+$_POST[$name]=filter_var($_POST[$name], FILTER_SANITIZE_EMAIL);
+}
+}
+
+//sanitize data bazed on criterias
+public function sanitize($data=array()){
+foreach($data as $name=>$rules){
+$rules=explode('|', $rules);
+$len=count($rules);
+for($i=0;$i<$len;$i++){
+$this->_sanitize($name, $rules[$i]);
+}
+}
+}
+
 }

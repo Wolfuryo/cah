@@ -22,7 +22,15 @@ Utils::get()->redirect('/errors/csrf');
 }
 
 $data=array_merge($data, array('form'=>$form->fields()));
+
+Validator::get()->sanitize(array(
+'name'=>'normal',
+'email'=>'normal|email',
+));
+
 if($form->are_set('name', 'pass', 'email')){
+
+$data=array_merge($data, array('form'=>$form->fields()));
 
 Validator::get()->validate(array(
 'name'=>'len=5,40',
@@ -47,20 +55,23 @@ $error=$valid;
 } else {
 
 $model=$this->model('user');
-
+if($model->exists($form->field('name'), $form->field('email'))){
+$error='A user with the email and/or username you selected already exists';
+} else {
+$model->create($form->field('name'), $form->field('email'), $form->field('pass'));
 }
-
+}
 } else {
 $error='All fields are required';
-}
-
 }
 
 if($error){
 $data=array_merge($data, array('error'=>$error));
 }
 
-$this->view('register', $data);
 }
 
+$this->view('register', $data);
+
+}
 }

@@ -32,6 +32,11 @@ unset($_POST['csrf']);
 return $_POST;
 }
 
+//return a single field value
+public function field($name){
+return $_POST[$name];
+}
+
 //loads the csrf token from the session
 //or creates one if it doesn't exist
 private function load_csrf(){

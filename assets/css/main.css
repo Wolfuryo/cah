@@ -7,10 +7,12 @@
 *{
 margin:0;
 padding:0;
-font-family:sans-serif;
+font-family:Roboto;
 font-size:16px;
 box-sizing:border-box;
 transition-duration:0.4s;
+letter-spacing: .1px;
+font-weight: 400;
 }
 :root{
 --primary:#25b3db;

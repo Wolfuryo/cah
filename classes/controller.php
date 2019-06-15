@@ -14,6 +14,14 @@ $this->twig=new \Twig\Environment($loader, [
 ]);
 }
 
+//load a model
+public function model($name){
+require_once(ROOT.'/models/'.$name.'.php');
+$name='\Models\\'.$name;
+return new $name;
+}
+
+//load a view using twig
 public function view($name, $data=array()){
 $template=$this->twig->load($name.'.php');
 //add the csrf token to data

@@ -68,6 +68,14 @@ return 0;
 return 1;
 }
 
+private function email($string){
+if(!filter_var($string, FILTER_VALIDATE_EMAIL)){
+$this->valid=0;
+return 0;
+}
+return 1;
+}
+
 private function len($string, $rule){
 $s=explode('=', $rule)[1];
 $s=explode(',', $s);
@@ -103,6 +111,10 @@ $this->min($_POST[$string], $rule);
 
 if(strpos($rule, 'len=')!==false){
 $this->len($_POST[$string], $rule);
+}
+
+if($rule=='email'){
+$this->email($_POST[$string]);
 }
 
 //we got an error, so set that

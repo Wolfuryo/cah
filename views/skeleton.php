@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
+<title>Cards against humanity</title>
 <link rel='stylesheet' type='text/css' href='/assets/css/main.css'/>
 </head>
 <body>
 <header>
 <div class='site'>
-<div class='name'><a href='/'>Devsland</a></div>
-<div class='desc'>Making your ideas into reality</div>
+<div class='name'><a href='/'>Diss me</a></div>
 </div>
 <nav>
 <a href='/'>Homepage</a>
@@ -26,9 +25,11 @@
 
 </nav>
 </header>
-<main>
-{% block main %}{% endblock %}
-</main>
+{% block main %}
+<div class='index-desc'>
+<span>Epic rap battles with strangers</span>
+</div>
+{% endblock %}
 <script src='/assets/js/main.js'></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
 *{
 margin:0;
 padding:0;
-font-family:Roboto;
+font-family:Helvetica;
 font-size:16px;
 box-sizing:border-box;
 transition-duration:0.4s;
@@ -20,8 +20,9 @@ font-weight: 400;
 --tertiary:#eee;
 --shadow:0 3px 6px rgba(0,0,0,0.16);
 }
-html{
+html, body{
 background:#f2f2f2;
+height:100%;
 }
 a{
 text-decoration:none;
@@ -30,10 +31,15 @@ text-decoration:none;
 header{
 background:#25b3db;
 box-shadow:var(--shadow);
+position: relative;
 }
 .name>a{
-color:white;
+color:var(--primary);
 font-size:40px;
+background:#2f2f2f;
+margin:0px;
+padding:10px;
+margin-left:-10px
 }
 .desc{
 font-style:italic;
@@ -51,7 +57,7 @@ font-size:0;
 height:100%;
 }
 nav>a{
-height:96.8px;
+height:70.5px;
 display:inline-flex;
 align-items:center;
 color:white;
@@ -121,4 +127,24 @@ box-shadow:inset var(--shadow);
 }
 [type='submit']:hover{
 box-shadow:var(--shadow);
+}
+/*Landing page*/
+.index-desc{
+display:flex;
+justify-content:center;
+align-items:center;
+height:calc(50% - 35.05px);
+background:url('/assets/images/rappers.jpg');
+background-position:top;
+}
+.index-desc>span{
+display:flex;
+height:100%;
+width:100%;
+justify-content:center;
+align-items:center;
+background:#2f2f2f;
+opacity:0.8;
+color:white;
+font-size:30px;
 }

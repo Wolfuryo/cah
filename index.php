@@ -24,3 +24,6 @@ $router->route();
 
 //render the page
 Output::get()->render();
+
+//var_dump(Session::get()->item('id'));
+var_dump($_SESSION);

@@ -7,7 +7,70 @@ public function default(){
 
 public function login(){
 
-$this->view('login');
+$error=0;
+$data=array();
+
+if(Request::get()->is_post()){
+$form=Form::get();
+if(!$form->verify()){
+Utils::get()->redirect('/errors/csrf');
+}
+
+$data=array_merge($data, array('form'=>$form->fields()));
+
+Validator::get()->sanitize(array(
+'name'=>'normal',
+'pass'=>'normal',
+));
+
+if($form->are_set('name', 'pass')){
+Validator::get()->validate(
+array(
+'name'=>'len=0,1000',
+'pass'=>'len=10,1000',
+), array(
+'name'=>array(
+'Usernames have between 5 and 40 characters;emails go up to 1000 characters',
+),
+'pass'=>array(
+'Password have between 10 and 1000 characters',
+),
+)
+);
+$valid=Validator::get()->valid();
+if($valid!=1){
+$error=$valid;
+} else {
+
+$model=$this->model('user');
+$id=$model->exists($form->field('name'), $form->field('name'));
+
+if($id){
+$hash=$model->get_hash($id['id']);
+
+if((new Password())->verify($form->field('pass'), $hash)){
+
+$model->login($id['id']);
+
+} else {
+$error='The password you provided is wrong';
+}
+
+} else {
+$error='No user with the given username/email exists';
+}
+
+}
+} else {
+$error='All fields are required';
+}
+
+}
+
+if($error){
+$data=array_merge($data, array('error'=>$error));
+}
+$this->view('login', $data);
 
 }
 

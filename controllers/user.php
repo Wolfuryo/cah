@@ -137,4 +137,10 @@ $data=array_merge($data, array('error'=>$error));
 $this->view('register', $data);
 
 }
+
+public function logout(){
+Session::get()->erase('id');
+Utils::get()->redirect('/');
+}
+
 }

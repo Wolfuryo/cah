@@ -13,8 +13,17 @@
 <nav>
 <a href='/'>Homepage</a>
 <a href='/blog'>Blog</a>
+
+{% if user.logged==false %}
 <a href='/user/login'>Login</a>
 <a href='/user/register'>Create an account</a>
+{% endif %}
+
+{% if user.logged %}
+<a href='/user/{{ user.id }}' class='con-as'>Connected as {{ user.name }}</a>
+<a href='/user/logout'>Logout</a>
+{% endif %}
+
 </nav>
 </header>
 <main>

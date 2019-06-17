@@ -25,7 +25,7 @@ return new $name;
 public function view($name, $data=array()){
 $template=$this->twig->load($name.'.php');
 //add the csrf token to data
-$data=array_merge($data, array('csrf'=>Form::get()->csrf()));
+$data=array_merge($data, array('csrf'=>Form::get()->csrf(), 'controller'=>get_called_class(), 'method'=>debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS,2)[1]['function']));
 $data=array_merge($data, array('user'=>_user::get()->data));
 Output::get()->add($template->render($data));
 }

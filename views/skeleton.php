@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Cards against humanity</title>
+<title>Diss me</title>
 <link rel='stylesheet' type='text/css' href='/assets/css/main.css'/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <header>
@@ -29,7 +30,21 @@
 <div class='index-desc'>
 <span>Epic rap battles with strangers</span>
 </div>
+<div class='features'>
+<div class='feat'>
+<span class='feat-title'>Lyrics analysis</span>
+<span class='feat-desc'>We automatically analyze the lyrics to decide a winner</span>
+</div>
+<div class='feat'>
+<span class='feat-title'>Go against your friends</span>
+<span class='feat-desc'>Prove you're the best</span>
+</div>
+<div class='feat'>
+<span class='feat-title'>Discuss on the forum</span>
+<span class='feat-desc'>Talk about rap or other subjects you're interested in</span>
+</div>
+</div>
 {% endblock %}
-<script src='/assets/js/main.js'></script>
+<script src='/assets/js/js.php?c={{ controller }}&m={{ method }}'></script>
 </body>
 </html>

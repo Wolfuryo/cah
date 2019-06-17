@@ -33,6 +33,12 @@ public function item($group, $name){
 return $this->store[$group][$name];
 }
 
+//checks whether an item exists
+//we assume that the group exists
+public function exists($group, $name){
+return isset($this->store[$group][$name]);
+}
+
 //return an instance
 public static function get(){
 if (self::$instance===null){

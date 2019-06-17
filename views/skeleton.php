@@ -44,6 +44,8 @@
 <span class='feat-desc'>Talk about rap or other subjects you're interested in</span>
 </div>
 </div>
+bla
+<span class='start-i'><a href='rooms'>Start</a></span>
 {% endblock %}
 <script src='/assets/js/js.php?c={{ controller }}&m={{ method }}'></script>
 </body>

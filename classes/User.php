@@ -8,6 +8,11 @@ private $id;
 
 public $data;
 
+//returns a property(database data)
+public function prop($name){
+return $this->data[$name];
+}
+
 public function _logged(){
 return Session::get()->exists('id');
 }

@@ -18,6 +18,9 @@ $parts=explode('/', $url);
 //run migrations
 Migrations::get();
 
+//initialize the user system
+_user::get();
+
 //pass the url to the router class and route it
 $router=new Router($parts);
 $router->route();

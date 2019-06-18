@@ -39,6 +39,7 @@ setTimeout(f, t);
 
 anime({
 targets:'header',
-rotateX:'0deg',
+marginTop:'0px',
+duration:10,
 easing:'cubicBezier(.5, .05, .1, .3)',
 });

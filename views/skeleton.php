@@ -12,7 +12,7 @@
 </div>
 <nav>
 <a href='/'>Homepage</a>
-<a href='/blog'>Blog</a>
+<a href='/rooms'>Rooms</a>
 
 {% if user.logged==false %}
 <a href='/user/login'>Login</a>
@@ -30,7 +30,7 @@
 <div class='index-desc'>
 <span>Epic rap battles with strangers</span>
 </div>
-<span class='start-i'><a href='rooms'>Start</a></span>
+<span class='start-i'><a href='rooms'>Pick an opponent</a></span>
 <div class='features'>
 <div class='feat'>
 <span class='feat-title'>Lyrics analysis</span>

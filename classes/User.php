@@ -8,6 +8,10 @@ private $id;
 
 public $data;
 
+public function _logged(){
+return Session::get()->exists('id');
+}
+
 public function logged(){
 $this->data['logged']=Session::get()->exists('id');
 return $this->data['logged'];

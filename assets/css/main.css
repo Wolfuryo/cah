@@ -18,7 +18,7 @@ position:relative;
 :root{
 --primary:#25b3db;
 --secondary:orange;
---tertiary:#eee;
+--tertiary:#404648;
 --shadow:0 3px 6px rgba(0,0,0,0.16);
 }
 html, body{
@@ -32,9 +32,9 @@ text-decoration:none;
 header{
 background:#25b3db;
 box-shadow:var(--shadow);
-transform:rotateX(90deg);
-position: sticky;
-top: 0;
+position:sticky;
+top:0px;
+margin-top:-10000px;
 z-index: 10;
 }
 .name>a{
@@ -171,7 +171,7 @@ opacity:0;
 font-size:30px;
 }
 .feat-desc{
-color:#404648;
+color:var(--tertiary);
 }
 .feat:nth-last-child(1){
 border-right:10px solid #eee;
@@ -217,4 +217,21 @@ box-shadow:var(--shadow);
 background:white;
 color:var(--primary);
 box-shadow:none;
+}
+/*Page title-description*/
+.page_header{
+padding:10px;
+background:white;
+/*box-shadow:var(--shadow);*/
+border-bottom:1px solid #eee;
+}
+.page_title{
+font-size:30px;
+}
+.page_desc{
+color:var(--tertiary);
+}
+/*Room creation*/
+.create_room_form form{
+width:100%;
 }

@@ -9,9 +9,7 @@ return i*200;
 });
 
 anime({
-targets:'.start-i>a',
-skew:'360deg',
-loop:true,
-delay:5000,
-duration:100
-})	
+targets:'.start-i',
+bottom:20.5,
+opacity:1,
+});

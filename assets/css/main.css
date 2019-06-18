@@ -33,6 +33,9 @@ header{
 background:#25b3db;
 box-shadow:var(--shadow);
 transform:rotateX(90deg);
+position: sticky;
+top: 0;
+z-index: 10;
 }
 .name>a{
 color:var(--primary);
@@ -149,7 +152,7 @@ background:black;
 font-size:30px;
 }
 .features{
-height:calc(66.66% - 46.7333334px);
+height:calc(66.66% - 46.7333334px - 41px);
 display:flex;
 justify-content:center;
 align-items:center;
@@ -196,8 +199,7 @@ left:-100px;
 opacity:0;
 }
 .start-i{
-position:fixed;
-bottom:10px;
+/*! bottom:100px; */
 width:100%;
 display:flex;
 justify-content:center;

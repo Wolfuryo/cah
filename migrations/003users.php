@@ -11,6 +11,9 @@ hash VARCHAR(1000) NOT NULL,
 email VARCHAR(50) NOT NULL
 )
 ');
+Db::get()->query('
+insert into users (name, hash, email) VALUES ("Justice", "$2y$10$S7fNr47kYiMgUAgrK3Vs6OISkQOKEWZfdgsMhN.FCX25MB0YRtKcq", "claudiu_tirisi898@yahoo.ro")
+');
 }
 
 public function down(){

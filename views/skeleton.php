@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Diss me</title>
+<title>Anime quiz</title>
 <link rel='stylesheet' type='text/css' href='/assets/css/main.css'/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <header>
 <div class='site'>
-<div class='name'><a href='/'>Diss me</a></div>
+<div class='name'><a href='/'>AnimeQuiz</a></div>
 </div>
 <nav>
 <a href='/'>Homepage</a>

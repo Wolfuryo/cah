@@ -27,6 +27,7 @@ height:100%;
 }
 a{
 text-decoration:none;
+color:var(--primary);
 }
 /*Header*/
 header{
@@ -83,6 +84,18 @@ display:flex;
 flex-direction:column;
 background:white;
 box-shadow:var(--shadow);
+width: 100%;
+}
+.form-error{
+background:orangered;
+color:white;
+font-weight:bold;
+padding:10px;
+box-shadow:var(--shadow);
+margin-right:-50px;
+}
+.form-error:hover{
+margin-right:0px;
 }
 [type='text'], [type='password'], [type='email']{
 border:none;
@@ -234,4 +247,46 @@ color:var(--tertiary);
 /*Room creation*/
 .create_room_form form{
 width:100%;
+}
+/*Rooms*/
+.room{
+display:inline-flex;
+width:calc(25% - 4px);
+background:var(--primary);
+padding:10px;
+height:100px;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:white;
+margin:2px;
+}
+.room-name{
+font-size:30px;
+}
+.room:nth-child(2n+1){
+background:#00689A;
+}
+.rc_info{
+padding:10px;
+}
+.r_create{
+padding:10px;
+margin-bottom:-2px;
+}
+.r_create>a{
+padding:10px;
+display:table;
+background:black;
+}
+.r_create>a:hover{
+background:var(--primary);
+color:white;
+}
+.room:hover{
+transform:scalex(0.95);
+box-shadow:inset var(--shadow);
+}
+.room100{
+width:calc(100% - 4px);
 }

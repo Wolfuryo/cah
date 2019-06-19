@@ -5,7 +5,6 @@ public function default(){
 $model=$this->model('rooms');
 $rooms=$model->get();
 $data=array();
-$model->cname($rooms);
 $data=array_merge($data, array('rooms'=>$rooms));
 $this->view('rooms', $data);
 }

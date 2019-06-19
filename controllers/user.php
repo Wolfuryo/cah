@@ -51,6 +51,7 @@ $hash=$model->get_hash($id['id']);
 if((new Password())->verify($form->field('pass'), $hash)){
 
 $model->login($id['id']);
+Utils::get()->redirect('/');
 
 } else {
 $error='The password you provided is wrong';

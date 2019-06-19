@@ -28,6 +28,7 @@
 
 </nav>
 </header>
+<div class='admin-nav'><a href='/admin/categories'>Categories</a><a href='/admin/questions/'>Questions</a><a href='/admin/users'>Users</a></div>
 {% block main %}
 <div class='index-desc'>
 <span>Battle for fame and stickers</span>

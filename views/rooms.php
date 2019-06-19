@@ -18,6 +18,12 @@
 
 <a href='/room/{{ room.id }}' class='room{% if loop.length%4==1 and loop.last %}
  room100
+{% endif %}{% if loop.length%4==2 and loop.last %}
+ room50
+{% endif %}{% if loop.length%4==2 and loop.revindex0==1 %}
+ room50
+{% endif %}{% if loop.length%4==3 and loop.last %}
+ room50
 {% endif %}'>
 <div class='room-name'>{{ room.name }}</div>
 <div class='room-author'>{{ room.creator_name }}</div>

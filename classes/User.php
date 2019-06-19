@@ -24,7 +24,7 @@ return $this->data['logged'];
 
 public function get_data(){
 $this->id=Session::get()->item('id');
-$this->data=array_merge($this->data, Db::get()->query('select id, name, email from users where id=?', array($this->id))->fetch());
+$this->data=array_merge($this->data, Db::get()->query('select * from users where id=?', array($this->id))->fetch());
 }
 
 private function __construct(){

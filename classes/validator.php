@@ -44,7 +44,7 @@ self::$instance=new self();
 return self::$instance;
 }
 
-private function number($string){
+public function number($string){
 if(!(filter_var($string, FILTER_VALIDATE_INT) === 0 || filter_var($string, FILTER_VALIDATE_INT))){
 $this->valid=0;
 return 0;
@@ -52,7 +52,7 @@ return 0;
 return 1;
 }
 
-private function positive($string){
+public function positive($string){
 if($string<0){
 $this->valid=0;
 return 0;

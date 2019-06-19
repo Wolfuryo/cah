@@ -8,9 +8,15 @@ $this->view('admin/admin.index');
 
 }
 
-public function users(){
+public function users($page=1){
+if(!(Validator::get()->number($page) && Validator::get()->positive($page))){
+$page=1;
+}
 _admin::get()->verify();
-$this->view('admin/admin.users');
+$model=$this->model('adminusers');
+$users=$model->get($page);
+
+$this->view('admin/admin.users', array('users'=>$users, 'amount'=>$model->number(), 'page'=>$page));
 }
 
 }

@@ -28,27 +28,13 @@
 
 </nav>
 </header>
+<div class='admin-wrap'>
 <div class='admin-nav'><a href='/admin/categories'>Categories</a><a href='/admin/questions/'>Questions</a><a href='/admin/users'>Users</a></div>
+<div class='admin-content'>
 {% block main %}
-<div class='index-desc'>
-<span>Battle for fame and stickers</span>
-</div>
-<span class='start-i'><a href='rooms'>Pick an opponent</a></span>
-<div class='features'>
-<div class='feat'>
-<span class='feat-title'>Multitude of categories</span>
-<span class='feat-desc'>The questions will never bore you</span>
-</div>
-<div class='feat'>
-<span class='feat-title'>Go against your friends</span>
-<span class='feat-desc'>Prove you're the best</span>
-</div>
-<div class='feat'>
-<span class='feat-title'>Discuss on the forum</span>
-<span class='feat-desc'>Talk about anime or other subjects you're interested in</span>
-</div>
-</div>
 {% endblock %}
+</div>
+</div>
 {% block footer %}
 {% if user.level==1 %}
 <div class='admin-link'><a href='/admin'><i class="material-icons">settings</i></a></div>

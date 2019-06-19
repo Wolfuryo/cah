@@ -307,11 +307,50 @@ border-radius:100%;
 }
 /*Admin panel*/
 .admin-nav{
-background:white;
 display:flex;
 box-shadow:var(--shadow);
+flex-direction:column;
+background:#2f2f2f;
+height: 100%;
 }
 .admin-nav>a{
+padding:20px;
+border-bottom:1px solid var(--primary);
+}
+.admin-wrap{
+display:flex;
+flex-direction:row;
+height: calc(100% - 71px);
+}
+.admin-nav>a:hover{
+background:#3f3f3f
+}
+.admin-content{
+width:100%;
+height: 100%;
+}
+.admin-user{
+background:white;
+border-bottom:1px solid #eee;
+}
+.admin-user>div{
+display:inline-flex;
+flex-direction:column;
 padding:10px;
-border-right:1px solid #eee;
+}
+.user-level{
+float:right;
+}
+.user-name{
+width:200px;
+}
+.admin-users{
+background:white;
+margin:10px;
+height:calc(100% - 100px);
+box-shadow: var(--shadow);
+overflow: auto;
+}
+.user-id{
+width:10px;
 }

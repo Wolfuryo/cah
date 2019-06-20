@@ -1,0 +1,162 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Jun 20, 2019 at 11:13 PM
+-- Server version: 10.1.40-MariaDB
+-- PHP Version: 7.3.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `devsland`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `color` varchar(10) DEFAULT '#2f2f2f'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `color`) VALUES
+(4, 'Geography', '7c7ab4'),
+(5, 'Fun Facts', 'eff317'),
+(6, 'Biology', '4b7ff5'),
+(7, 'History', 'e80749'),
+(8, 'Technology', 'bb3e51'),
+(9, 'Testing', '274e63'),
+(10, 'Testing2', 'a288a3'),
+(11, 'Testing23', '4c6c52'),
+(12, 'Testing234', '224110'),
+(13, 'Testing2345', 'e34e20'),
+(14, 'Testing23456', 'a35024'),
+(15, 'Testing234567', '561ffe'),
+(16, 'Testing2345676', 'd38f81'),
+(17, 'Testing23456766', '3d0470'),
+(18, 'Testing234567666', 'cf88fb');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `name` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `name`) VALUES
+(1, 'users'),
+(2, 'rooms'),
+(3, 'userlevels'),
+(5, 'categories'),
+(7, 'catcolor');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rooms`
+--
+
+CREATE TABLE `rooms` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `creator_id` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `hash` varchar(1000) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `level` int(10) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `hash`, `email`, `level`) VALUES
+(1, 'Justice', '$2y$10$S7fNr47kYiMgUAgrK3Vs6OISkQOKEWZfdgsMhN.FCX25MB0YRtKcq', 'claudiu_tirisi898@yahoo.ro', 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rooms`
+--
+ALTER TABLE `rooms`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `rooms`
+--
+ALTER TABLE `rooms`
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;

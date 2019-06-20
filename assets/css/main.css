@@ -354,3 +354,26 @@ overflow: auto;
 .user-id{
 width:10px;
 }
+.admin-cats{
+overflow:auto;
+width:100%;
+height:calc(100% - 325px);
+overflow:auto;
+}
+.a-cat{
+display:inline-flex;
+width:calc(25% - 4px);
+height:100px;
+background:orange;
+justify-content:center;
+align-items:center;
+color:white;
+flex-direction:column;
+padding:10px;
+cursor:pointer;
+margin:2px;
+box-shadow:var(--shadow);
+}
+.a-cat:hover{
+box-shadow:inset var(--shadow)
+}

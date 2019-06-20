@@ -25,4 +25,11 @@ public function redirect($url){
 header('Location:'.$url);
 }
 
+//transform a string into a color code
+public function color($str){
+$code=dechex(crc32($str));
+$code=substr($code, 0, 6);
+return $code;
+}
+
 }

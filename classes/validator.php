@@ -10,11 +10,16 @@ private $valid=1;
 
 //the error that will be returned when calling Validator::valid()
 private $error=-1;
+private $store;
 
 //reset valid
 public function reset(){
 $this->valid=1;
 $this->error=-1;
+}
+
+public function set($array=array()){
+$this->store=$array;
 }
 
 //returns 1 if there were no errors found, otherwise returning the error
@@ -34,6 +39,7 @@ return $error;
 
 private function __construct(){
 self::$instance=$this;
+$this->store=$_POST;
 }
 
 //make the class a singleton
@@ -97,24 +103,24 @@ if($this->valid==0) return;
 
 //is a whole number/integer
 if($rule=='number'){
-$this->number($_POST[$string]);
+$this->number($this->store[$string]);
 }
 
 //is positive
 if($rule=='positive'){
-$this->positive($_POST[$string]);
+$this->positive($this->store[$string]);
 }
 
 if(strpos($rule, 'min=')!==false){
-$this->min($_POST[$string], $rule);
+$this->min($this->store[$string], $rule);
 }
 
 if(strpos($rule, 'len=')!==false){
-$this->len($_POST[$string], $rule);
+$this->len($this->store[$string], $rule);
 }
 
 if($rule=='email'){
-$this->email($_POST[$string]);
+$this->email($this->store[$string]);
 }
 
 //we got an error, so set that
@@ -154,10 +160,10 @@ $index++;
 //sanitize a single field, based on a single criteria
 private function _sanitize($name, $rule){
 if($rule=='normal'){
-$_POST[$name]=filter_var($_POST[$name], FILTER_SANITIZE_STRING);
+$this->store[$name]=filter_var($this->store[$name], FILTER_SANITIZE_STRING);
 }
 if($rule=='email'){
-$_POST[$name]=filter_var($_POST[$name], FILTER_SANITIZE_EMAIL);
+$this->store[$name]=filter_var($this->store[$name], FILTER_SANITIZE_EMAIL);
 }
 }
 

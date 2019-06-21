@@ -1,9 +1,9 @@
 <?php
+_admin::get()->verify();
 class admin extends Controller{
 
 public function default(){
 
-_admin::get()->verify();
 $this->view('admin/admin.index');
 
 }
@@ -76,6 +76,18 @@ public function cat($name=-1){
 if($name==-1){
 Utils::get()->redirect('/admin/categories');
 }
+
+Validator::get()->set(array('name'=>$name));
+Validator::get()->sanitize(array('name'=>'normal'));
+$model=$this->model('admincat');
+$data=$model->exists($name);
+
+if($data){
+
+} else {
+Utils::get()->redirect('/admin/categories');
+}
+
 }
 
 }

@@ -377,3 +377,42 @@ box-shadow:var(--shadow);
 .a-cat:hover{
 box-shadow:inset var(--shadow)
 }
+/*Tabular*/
+.tab-menu{
+background:#2f2f2f;
+margin:10px;
+z-index:10;
+}
+.tab-menu span{
+display:inline-table;
+padding:10px;
+border-bottom:2px solid white;
+top:2px;
+cursor:pointer;
+color:white;
+}
+.t-menu-active, .tab-menu>span:hover{
+color:var(--primary) !important;
+border-bottom:2px solid var(--primary) !important;
+}
+.tab-con{
+background:white;
+margin:10px;
+top:-10px;
+}
+.tab-con>span{
+position:absolute;
+transform:scale(0);
+background:white;
+width:100%;
+padding:10px;
+}
+.t-active{
+top:0px !important;
+transform:scale(1) !important;
+}
+.tab-con>span>.form_container{
+padding:0;
+margin:-10px;
+margin-bottom:5px;
+}

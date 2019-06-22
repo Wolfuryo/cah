@@ -5,10 +5,10 @@
 <div class='page_desc'>View/modify/delete category and questions</div>
 </div>
 <div class='tabular'>
-<div class='tab-menu'><span class='t-menu-active'>View questions</span><span>Add question</span></div>
+<div class='tab-menu'><span{% if post==0 %} class='t-menu-active'{% endif %}>View questions</span><span{% if post==1 %} class='t-menu-active'{% endif %}>Add question</span></div>
 <div class='tab-con'>
-<span class='t-active'>Questions</span>
-<span>
+<span{% if post==0 %} class='t-active'{% endif %}>Questions</span>
+<span{% if post==1 %} class='t-active'{% endif %}>
 <div class='form_container'>
 {% if error %}
 <div class='form-error'>{{ error }}</div>

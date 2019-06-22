@@ -8,7 +8,7 @@ class form{
 private static $instance;
 
 //csrf token
-private $token;
+public $token;
 
 private function __construct(){
 self::$instance=$this;

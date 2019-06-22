@@ -4,5 +4,6 @@ return [
 'default'=>'main',
 'main'=>'main,index',
 'user'=>'main,user',
-'user|login'=>'main,login'
+'user|login'=>'main,login',
+'admin|cat'=>'main,tabular',
 ];

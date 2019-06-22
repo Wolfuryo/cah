@@ -77,14 +77,52 @@ if($name==-1){
 Utils::get()->redirect('/admin/categories');
 }
 
-Validator::get()->set(array('name'=>$name));
-Validator::get()->sanitize(array('name'=>'normal'));
 $model=$this->model('admincat');
-$data=$model->exists($name);
+$d=$model->exists($name);
+if($d){
 
-if($data){
+$data=array('post'=>0);
+if(Request::get()->is_post()){
+$form=Form::get();
+//$data=array_merge($data, array('form'=>$form->fields()));
+$data['post']=1;
+if(!$form->verify()){
+Utils::get()->redirect('/errors/csrf');
+}
 
-$this->view('admin/admin.cat');
+if($form->are_set('name', 'ans1', 'ans2', 'ans3')){
+Validator::get()->sanitize(array(
+'name'=>'normal',
+'ans1'=>'normal',
+'ans2'=>'normal',
+'ans3'=>'normal',
+));
+Validator::get()->validate(array(
+'name'=>'len=5,10',
+'ans1'=>'len=5,10',
+'ans2'=>'len=5,10',
+'ans3'=>'len=5,10',
+), array(
+'name'=>array('The name has to have between 5 and 100 characters'),
+'ans1'=>array('The answers(1) has to have between 5 and 100 characters'),
+'ans2'=>array('The answers(2) has to have between 5 and 100 characters'),
+'ans3'=>array('The answers(3) has to have between 5 and 100 characters'),
+),);
+$valid=Validator::get()->valid();
+if($valid!=1){
+$error=$valid;
+} else {
+
+$model=$this->model('adminquestions');
+$model->save($form->field('name'), $form->field('ans1'), $form->field('ans2'), $form->field('ans3'));
+
+}
+} else {
+$error='All fields are required';
+}
+
+}
+$this->view('admin/admin.cat', $data);
 
 } else {
 Utils::get()->redirect('/admin/categories');

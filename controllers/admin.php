@@ -84,6 +84,8 @@ $data=$model->exists($name);
 
 if($data){
 
+$this->view('admin/admin.cat');
+
 } else {
 Utils::get()->redirect('/admin/categories');
 }

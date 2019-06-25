@@ -75,7 +75,6 @@ color:var(--primary);
 /*Forms*/
 .form_container{
 display:flex;
-justify-content:center;
 align-items:center;
 padding:40px;
 }
@@ -83,8 +82,7 @@ form{
 display:flex;
 flex-direction:column;
 background:white;
-box-shadow:var(--shadow);
-width: 100%;
+border:1px solid #eee;
 }
 .form-error{
 background:orangered;
@@ -151,7 +149,9 @@ display:flex;
 justify-content:center;
 align-items:center;
 height:calc(33.33% - 23.3666667px);
-background:url('/assets/images/rappers.jpg');
+background:url('https://images5.alphacoders.com/587/thumb-1920-587597.jpg');
+background-size: cover;
+background-position: center;
 }
 .index-desc>span{
 display:flex;
@@ -160,7 +160,7 @@ width:100%;
 justify-content:center;
 align-items:center;
 color:white;
-opacity:0.9;
+opacity:0.7;
 background:black;
 font-size:30px;
 }
@@ -235,14 +235,30 @@ box-shadow:none;
 .page_header{
 padding:10px;
 background:white;
-/*box-shadow:var(--shadow);*/
 border-bottom:1px solid #eee;
 }
 .page_title{
 font-size:30px;
 }
+.page_title>span{
+font-size:25px;
+border:1px solid #eee;
+padding:5px;
+display:inline-table
+}
 .page_desc{
 color:var(--tertiary);
+}
+.page_options{
+position:absolute;
+top:5px;
+right:0;
+padding:10px;
+}
+.page_options>a{
+background:var(--primary);
+color:white;
+padding:5px;
 }
 /*Room creation*/
 .create_room_form form{
@@ -308,14 +324,14 @@ border-radius:100%;
 /*Admin panel*/
 .admin-nav{
 display:flex;
-box-shadow:var(--shadow);
+box-shadow:4px 3px 6px rgba(0,0,0,0.16);
 flex-direction:column;
-background:#2f2f2f;
+background:var(--tertiary);
 height: 100%;
+z-index: 10;
 }
 .admin-nav>a{
 padding:20px;
-border-bottom:1px solid var(--primary);
 }
 .admin-wrap{
 display:flex;
@@ -323,7 +339,7 @@ flex-direction:row;
 height: calc(100% - 71px);
 }
 .admin-nav>a:hover{
-background:#3f3f3f
+background:#2f2f2f;
 }
 .admin-content{
 width:100%;
@@ -414,5 +430,5 @@ transform:scale(1) !important;
 .tab-con>span>.form_container{
 padding:0;
 margin:-10px;
-margin-bottom:5px;
+padding: 10px;
 }

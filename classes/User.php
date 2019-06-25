@@ -10,6 +10,7 @@ public $data;
 
 //returns a property(database data)
 public function prop($name){
+if(!isset($this->data[$name]) || empty($this->data[$name])) return 0;
 return $this->data[$name];
 }
 

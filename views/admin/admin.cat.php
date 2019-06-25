@@ -1,8 +1,9 @@
 {% extends "_skeleton.php" %}
 {% block main %}
 <div class='page_header'>
-<div class='page_title'>Admin:Category {{ cat }}</div>
+<div class='page_title'>Admin:Category <span style='color:#{{ color }}'>{{ cat }}</span></div>
 <div class='page_desc'>View/modify/delete category and questions</div>
+<div class='page_options'><a href='/admin/cat/{{ cat|url_encode }}/delete'>Delete the category</a></div>
 </div>
 <div class='tabular'>
 <div class='tab-menu'><span{% if post==0 %} class='t-menu-active'{% endif %}>View questions</span><span{% if post==1 %} class='t-menu-active'{% endif %}>Add question</span></div>

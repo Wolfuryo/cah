@@ -22,7 +22,7 @@ return self::$instance;
 }
 
 public function redirect($url){
-header('Location:'.$url);
+header('Location:'.$url);die();
 }
 
 //transform a string into a color code

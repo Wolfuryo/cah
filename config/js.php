@@ -6,4 +6,5 @@ return [
 'user'=>'main,user',
 'user|login'=>'main,login',
 'admin|cat'=>'main,tabular',
+'admin|categories'=>'main,tabular'
 ];

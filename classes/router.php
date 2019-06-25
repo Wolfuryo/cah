@@ -11,13 +11,16 @@ $this->parts=$parts;
 $this->prepare();
 }
 
-//remove the empty parts
+//remove the empty parts and apply rawurldecode
 private function prepare(){
 array_shift($this->parts);
 $this->len=count($this->parts);
 if($this->parts[$this->len-1]===''){
 array_pop($this->parts);
 $this->len--;
+}
+for($i=0;$i<$this->len;$i++){
+$this->parts[$i]=rawurldecode($this->parts[$i]);
 }
 }
 

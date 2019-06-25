@@ -72,7 +72,7 @@ $this->view('admin/admin.categories', $data);
 }
 
 
-public function cat($name=-1){
+public function cat($name=-1, $delete=0){
 if($name==-1){
 Utils::get()->redirect('/admin/categories');
 }
@@ -80,16 +80,20 @@ Utils::get()->redirect('/admin/categories');
 $model=$this->model('admincat');
 $d=$model->exists($name);
 if($d){
+if($delete!==0){
+$model->delete($name);
+Utils::get()->redirect('/admin/categories');
+}
 
-$data=array('post'=>0);
+$data=array('post'=>0, 'cat'=>$name, 'color'=>$d['color']);
 if(Request::get()->is_post()){
 $form=Form::get();
-//$data=array_merge($data, array('form'=>$form->fields()));
 $data['post']=1;
 if(!$form->verify()){
 Utils::get()->redirect('/errors/csrf');
 }
 
+$data=array_merge($data, array('form'=>$form->fields()));
 if($form->are_set('name', 'ans1', 'ans2', 'ans3')){
 Validator::get()->sanitize(array(
 'name'=>'normal',

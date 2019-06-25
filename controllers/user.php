@@ -123,6 +123,7 @@ if($model->exists($form->field('name'), $form->field('email'))){
 $error='A user with the email and/or username you selected already exists';
 } else {
 $model->create($form->field('name'), $form->field('email'), $form->field('pass'));
+Utils::get()->redirect('/user/verification');
 }
 }
 } else {
@@ -137,6 +138,10 @@ $data=array_merge($data, array('error'=>$error));
 
 $this->view('register', $data);
 
+}
+
+public function verification(){
+$this->view('verification');
 }
 
 public function logout(){

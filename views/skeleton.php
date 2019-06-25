@@ -1,3 +1,4 @@
+{% spaceless %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,3 +57,4 @@
 <script src='/assets/js/js.php?c={{ controller }}&m={{ method }}'></script>
 </body>
 </html>
+{% endspaceless %}

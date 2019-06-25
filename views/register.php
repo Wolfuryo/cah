@@ -17,5 +17,6 @@
 <input type='hidden' name='csrf' value='{{ csrf }}'/>
 <span><input type='submit' value='Login'/></span>
 </form>
+<div class='form_info'>An email will be sent to verify that you are the owner of the email address</div>
 </div>
 {% endblock %}

@@ -14,5 +14,6 @@
 <input type='hidden' value='{{ csrf }}' name='csrf'/>
 <span><input type='submit' value='Login'/></span>
 </form>
+<div class='form_info'><span>Forgot your password? Reset it <a href='/user/reset/'>here</a></div>
 </div>
 {% endblock %}

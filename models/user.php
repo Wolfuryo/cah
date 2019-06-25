@@ -15,7 +15,7 @@ return $this->db->query('select hash from users where id=?', array($id))->fetch(
 //create an account
 public function create($name, $email, $password){
 $pass=new \Password();
-$this->db->query('insert into users (name, email, hash) values (?, ?, ?)', array($name, $email, $pass->hash($password)));
+$this->db->query('insert into users (name, email, hash, mailhash) values (?, ?, ?, ?)', array($name, $email, $pass->hash($password), \Utils::get()->uuid()));
 }
 
 public function login($id){

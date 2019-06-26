@@ -66,7 +66,13 @@ if($error){
 $data=array_merge($data, array('error'=>$error));
 }
 
+//add the text color to every category
 $cats=$model->get();
+$len=count($cats);
+for($i=0;$i<$len;$i++){
+$cats[$i]['textcolor']=Utils::get()->contrast($cats[$i]['color']);
+}
+
 $data=array_merge($data, array('cats'=>$cats));
 $this->view('admin/admin.categories', $data);
 }

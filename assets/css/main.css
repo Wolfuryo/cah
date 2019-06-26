@@ -35,8 +35,7 @@ background:#25b3db;
 box-shadow:var(--shadow);
 position:sticky;
 top:0px;
-margin-top:-10000px;
-z-index: 10;
+z-index:10;
 }
 .name>a{
 color:var(--primary);
@@ -76,7 +75,6 @@ color:var(--primary);
 .form_container{
 display:flex;
 padding:40px;
-border:1px solid #eee;
 height:200px;
 }
 .form_container>*{
@@ -84,6 +82,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 height:100%;
+border: 1px solid #eee;
 }
 form{
 background:white;
@@ -94,8 +93,9 @@ height:100%;
 width:100%;
 display:inline-flex;
 height:100%;
-border-left:1px solid #eee;
+border:1px solid #eee;
 padding-left: 20px;
+border-left: 0px;
 }
 .form-error{
 background:orangered;
@@ -145,10 +145,10 @@ padding:10px;
 border-bottom:0px;
 }
 [type='submit']:focus{
-box-shadow:inset var(--shadow);
+box-shadow:var(--shadow);
 }
 [type='submit']:hover{
-box-shadow:var(--shadow);
+box-shadow:inset var(--shadow);
 }
 /*Landing page*/
 .index-desc{
@@ -396,13 +396,17 @@ padding:10px;
 cursor:pointer;
 margin:2px;
 box-shadow:var(--shadow);
+clip-path:polygon(0 0, 0% 0%, 0% 0, 100% 0%, 100% 0, 100% 0%, 100% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 100%, 0 100%, 0% 100%, 0 0%, 0% 0%);
 }
 .a-cat:hover{
-box-shadow:inset var(--shadow)
+box-shadow:inset var(--shadow);
+clip-path:polygon(0px 0px, 25% -35%, 50% -15px, 75% 5%, 100% 0px, 95% 25%, 75% 150%, 95% 75%, 100% 100%, 75% 125%, 50% 95%, 25% 95%, 0px 100%, 5% 75%, 83px -57.00%, 5% 25%);
+background:var(--primary) !important;
+filter:invert(100%);
 }
 /*Tabular*/
 .tab-menu{
-background:#2f2f2f;
+/*! background:#2f2f2f; */
 margin:10px;
 z-index:10;
 }
@@ -412,7 +416,7 @@ padding:10px;
 border-bottom:2px solid white;
 top:2px;
 cursor:pointer;
-color:white;
+color: #2f2f2f;
 }
 .t-menu-active, .tab-menu>span:hover{
 color:var(--primary) !important;
@@ -438,6 +442,7 @@ transform:scale(1) !important;
 padding:0;
 margin:-10px;
 padding:10px;
+height: auto;
 }
 /*Email verification*/
 .mail-v{

@@ -41,4 +41,13 @@ $data[8]=chr(ord($data[8]) & 0x3f | 0x80);// set bits 6-7 to 10
 return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
 }
 
+//returns a text color based on the background
+public function contrast($hexcolor){
+$r=hexdec(substr($hexcolor, 1, 2));
+$g=hexdec(substr($hexcolor, 3, 2));
+$b=hexdec(substr($hexcolor, 5, 2));
+$yiq=(($r*299)+($g*587)+($b*114))/1000;
+return ($yiq>=128)?'white':'black';
+}
+
 }

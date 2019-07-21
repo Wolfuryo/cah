@@ -92,6 +92,7 @@ Utils::get()->redirect('/admin/categories');
 }
 
 $data=array('post'=>0, 'cat'=>$name, 'color'=>$d['color']);
+$error=0;
 if(Request::get()->is_post()){
 $form=Form::get();
 $data['post']=1;
@@ -108,15 +109,15 @@ Validator::get()->sanitize(array(
 'ans3'=>'normal',
 ));
 Validator::get()->validate(array(
-'name'=>'len=5,10',
-'ans1'=>'len=5,10',
-'ans2'=>'len=5,10',
-'ans3'=>'len=5,10',
+'name'=>'len=5,1000',
+'ans1'=>'len=5,1000',
+'ans2'=>'len=5,1000',
+'ans3'=>'len=5,1000',
 ), array(
-'name'=>array('The name has to have between 5 and 100 characters'),
-'ans1'=>array('The answers(1) has to have between 5 and 100 characters'),
-'ans2'=>array('The answers(2) has to have between 5 and 100 characters'),
-'ans3'=>array('The answers(3) has to have between 5 and 100 characters'),
+'name'=>array('The name has to have between 5 and 1000 characters'),
+'ans1'=>array('The answers(1) has to have between 5 and 1000 characters'),
+'ans2'=>array('The answers(2) has to have between 5 and 1000 characters'),
+'ans3'=>array('The answers(3) has to have between 5 and 1000 characters'),
 ),);
 $valid=Validator::get()->valid();
 if($valid!=1){
@@ -124,7 +125,7 @@ $error=$valid;
 } else {
 
 $model=$this->model('adminquestions');
-$model->save($form->field('name'), $form->field('ans1'), $form->field('ans2'), $form->field('ans3'));
+$model->save($d['id'], $form->field('name'), $form->field('ans1'), $form->field('ans2'), $form->field('ans3'));
 
 }
 } else {
@@ -132,12 +133,20 @@ $error='All fields are required';
 }
 
 }
+if($error){
+$data=array_merge($data, ['error'=>$error]);
+}
 $this->view('admin/admin.cat', $data);
 
 } else {
 Utils::get()->redirect('/admin/categories');
 }
-
 }
+
+
+public function backup(){
+$this->view('admin/admin.backup');
+}
+
 
 }

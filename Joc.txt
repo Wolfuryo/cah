@@ -1,7 +1,7 @@
 Categories:
 
 1.Geography
-2.Fun Facts
+2.Fun facts
 3.Biology
 4.History
 5.Technology
@@ -17,7 +17,7 @@ a)the gravity is lower than in other parts of the world.(A)
 b)the temperature is -100 degrees.
 c)you can find penguins.
 
-3.The highest(The highest):
+3.The highest(the highest):
 a)mountain in the world has over 8,500 metres
 b)wave ever surfed was as tall as a 10-story building(A)
 c)altitude a bird can fly is 48,000 metres

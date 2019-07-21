@@ -11,7 +11,7 @@
 {% spaceless %}
 <div class='admin-cats'>
 {% for cat in cats %}
-<a href='/admin/cat/{{ cat.name|url_encode }}' class='a-cat' style='color:{{ cat.textcolor }};background:linear-gradient(90deg, #{{ cat.color }} 0%, #{{ cat.color }} 35%, rgba(0,212,255,1) 100%)'>{{ cat.name }}</a>
+<a href='/admin/cat/{{ cat.name|url_encode }}' class='a-cat' style='background:linear-gradient(90deg, #{{ cat.color }} 0%, #{{ cat.color }} 35%, rgba(0,212,255,1) 100%)'>{{ cat.name }}</a>
 {% endfor %}
 </div>
 {% endspaceless %}

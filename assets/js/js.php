@@ -21,7 +21,7 @@ return '';
 }
 
 
-function minify($data){
+function minify($data){return $data;
 $mf=new JSqueeze();
 return $mf->squeeze($data, true, false);
 }

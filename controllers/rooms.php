@@ -36,7 +36,8 @@ $error=$valid;
 } else {
 
 $model=$this->model('rooms');
-$model->create($form->field('name'));
+$id=$model->create($form->field('name'));
+Utils::get()->redirect("/room/$id");
 
 }
 

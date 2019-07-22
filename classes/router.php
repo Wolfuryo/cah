@@ -50,6 +50,15 @@ $args[]=$this->parts[$i];
 return $args;
 }
 
+//if we run the default controller, we pass any other arguments to it
+private function _arguments(){
+$args=array();
+for($i=1;$i<$this->len;$i++){
+$args[]=$this->parts[$i];
+}
+return $args;
+}
+
 //do the actual routing
 public function route(){
 
@@ -86,7 +95,7 @@ $controller=new $this->parts[0];
 if(method_exists($controller, $this->parts[1])){
 call_user_func(array($controller, $this->parts[1]), ...$this->arguments());
 } else {
-$controller->default();
+call_user_func(array($controller, 'default'), ...$this->_arguments());
 }
 }
 }

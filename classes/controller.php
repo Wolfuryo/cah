@@ -30,8 +30,4 @@ $data=array_merge($data, array('user'=>_user::get()->data));
 Output::get()->add($template->render($data));
 }
 
-//the default method for any controller
-public function default(){
-echo 'Controller::default';
-}
 };

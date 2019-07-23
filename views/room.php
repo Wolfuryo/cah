@@ -6,8 +6,11 @@
 <span class='r_author'></span>
 </div>
 <div class='game'>
-<div class='game-left'></div>
-<div class='game-content'></div>
-<div class='game-right'></div>
+<div class='game-left'>left side</div>
+<div class='game-content'>center</div>
+<div class='game-right'>
+<div class='game-users-h'>Players</div>
+<div class='game-users'></div>
+</div>
 </div>
 {% endblock main %}

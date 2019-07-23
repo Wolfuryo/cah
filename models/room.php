@@ -8,4 +8,8 @@ return $this->db->query('select rooms.id, rooms.name, rooms.creator_id, rooms.da
 
 }
 
+public function update_data($room_id, $data){
+$this->db->query('update rooms set data=? where id=?', array($data, $room_id));
+}
+
 }

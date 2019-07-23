@@ -480,3 +480,24 @@ transform:rotate(0deg);
 transform:rotate(360deg);
 }
 }
+.loaded{
+position:absolute;
+top:-1000px;
+}
+/*Room*/
+.r_header:empty{
+display:none;
+}
+.r_header{
+background:white;
+padding:10px;
+border-bottom:1px solid #eee;
+}
+.r_title{
+font-size:40px;
+color:var(--primary);
+}
+.r_author{
+font-size:20px;
+padding-left:5px;
+}

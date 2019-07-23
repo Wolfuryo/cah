@@ -13,4 +13,14 @@
 <div class='game-users'></div>
 </div>
 </div>
+
+{% if added==1 %}
+was not in room, added here
+{% endif %}
+{% if added==2 %}
+was in another room, not added here
+{% endif %}
+{% if added==3 %}
+already here
+{% endif %}
 {% endblock main %}

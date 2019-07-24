@@ -37,17 +37,7 @@ INSERT INTO `categories` (`id`, `name`, `color`) VALUES
 (5, 'Fun Facts', 'eff317'),
 (6, 'Biology', '4b7ff5'),
 (7, 'History', 'e80749'),
-(8, 'Technology', 'bb3e51'),
-(9, 'Testing', '274e63'),
-(10, 'Testing2', 'a288a3'),
-(11, 'Testing23', '4c6c52'),
-(12, 'Testing234', '224110'),
-(13, 'Testing2345', 'e34e20'),
-(14, 'Testing23456', 'a35024'),
-(15, 'Testing234567', '561ffe'),
-(16, 'Testing2345676', 'd38f81'),
-(17, 'Testing23456766', '3d0470'),
-(18, 'Testing234567666', 'cf88fb');
+(8, 'Technology', 'bb3e51');
 
 -- --------------------------------------------------------
 

@@ -1,8 +1,11 @@
 <?php
 class ApiController extends Controller{
 
+private $inc=0;
+
 public function ret($data){
-Output::get()->add($data);
+if($this->inc===0) Output::get()->add($data);
+$this->inc++;
 }
 
 }

@@ -460,8 +460,13 @@ display:flex;
 justify-content:center;
 padding:30px;
 background:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:calc(100% - 71px - 21px);
 }
 .loader>span{
+position:relative;
 display:table;
 width:30px;
 height:30px;
@@ -471,6 +476,7 @@ border-bottom-color:var(--primary);
 border-radius:100%;
 animation:1s linear infinite load;
 transform:rotate(0deg);
+top:0;
 }
 @keyframes load{
 0%{
@@ -481,11 +487,11 @@ transform:rotate(360deg);
 }
 }
 .loaded{
-position:absolute;
+display:none;
 top:-1000px;
 }
 /*Room*/
-.r_header:empty{
+.r_header *:empty{
 display:none;
 }
 .r_header{
@@ -502,10 +508,13 @@ font-size:20px;
 padding-left:5px;
 }
 .game{
-display:flex;
+display:none;
 justify-self:center;
 align-self:center;
 height:calc(100% - 71px - 72px);
+}
+.game-visible{
+display:flex !important;
 }
 .game>div{
 height:100%;
@@ -518,10 +527,15 @@ background:white;
 width:60%;
 
 }
+.game-right{
+top:1px;
+height:calc(100% - 1px) !important;
+}
 .game-users-h{
 padding:10px;
 box-shadow:var(--shadow);
 margin-bottom:2px;
+margin-top: px;
 }
 .game-player{
 display:table;
@@ -543,4 +557,27 @@ position:relative;
 top:-1px;
 left:1px;
 border-radius:3%;
+}
+/*Room chat*/
+.chat{
+position:absolute;
+bottom:0;
+width:100%;
+height:100%;
+}
+.chat-body{
+height:calc(100% - 95px);
+}
+.chat-head{
+box-shadow:var(--shadow);
+background:white;
+border-top:1px solid #eee;
+padding:10px;
+}
+.chat-bar{
+background:var(--primary);
+padding:5px;
+}
+.chat-bar>form{
+background:none;
 }

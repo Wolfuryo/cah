@@ -54,6 +54,8 @@
 <div class='admin-link'><a href='/admin'><i class="material-icons">settings</i></a></div>
 {% endif %}
 {% endblock %}
+{% block ably %}
+{% endblock %}
 <script src='/assets/js/js.php?c={{ controller }}&m={{ method }}'></script>
 </body>
 </html>

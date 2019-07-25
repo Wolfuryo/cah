@@ -27,3 +27,6 @@
 </div>
 </div>
 {% endblock main %}
+{% block ably %}
+<script src="//cdn.ably.io/lib/ably.min-1.js"></script>
+{% endblock %}

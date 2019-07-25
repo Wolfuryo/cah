@@ -7,5 +7,5 @@ return [
 'user|login'=>'main,login',
 'admin|cat'=>'main,tabular',
 'admin|categories'=>'main,tabular',
-'room'=>'main,network,array,urls,game',
+'room'=>'main,network,array,urls,game,ably,chat',
 ];

@@ -598,3 +598,22 @@ animation:1s linear infinite load;
 .chat-body{
 overflow:auto;
 }
+.chat-message>div{
+display:inline-table;
+vertical-align:middle;
+}
+.chat-message{
+border-bottom:2px solid #eee;
+width:100%;
+padding:10px;
+}
+.chat-uname{
+background:var(--primary);
+font-size:17px;
+color:white;
+float:right;
+padding:5px;
+top:-5px;
+right:-5px;
+border-radius:1;
+}

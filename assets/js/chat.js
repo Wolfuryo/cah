@@ -17,23 +17,23 @@ m.classList.add('chat-message');
 var n=document.createElement('div');
 n.classList.add('chat-uname');
 n.innerHTML=message.name;
-m.appendChild(n);
 var f=document.createElement('div');
 f.classList.add('chat-mess');
 f.innerHTML=message.message;
 m.appendChild(f);
+m.appendChild(n);
 this.elems.body.appendChild(m);
 },
 
 messages:[],
 
 render:function(data){
-console.log(data);
 this.messages=data;
 var len=data.length, i=0;
 for(;i<len;i++){
 this.render_message(data[i]);
 }
+if(len) this.elems.body.scrollTop=this.elems.body.scrollHeight;
 },
 
 remove_loader:function(){

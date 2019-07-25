@@ -604,8 +604,12 @@ vertical-align:middle;
 }
 .chat-message{
 border-bottom:2px solid #eee;
-width:100%;
 padding:10px;
+display:table;
+width:100%;
+}
+.chat-mess{
+width:calc(75% - 10px);
 }
 .chat-uname{
 background:var(--primary);
@@ -613,7 +617,7 @@ font-size:17px;
 color:white;
 float:right;
 padding:5px;
-top:-5px;
 right:-5px;
 border-radius:1;
+width:25%;
 }

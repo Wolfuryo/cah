@@ -158,7 +158,7 @@ $index++;
 }
 
 //sanitize a single field, based on a single criteria
-private function _sanitize($name, $rule){
+public function _sanitize($name, $rule){
 if($rule=='normal'){
 $this->store[$name]=filter_var($this->store[$name], FILTER_SANITIZE_STRING);
 }

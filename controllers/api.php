@@ -52,4 +52,23 @@ $this->ret(json_encode(array($data, $users)));
 }
 
 
+public function chat(){
+
+$form=Form::get();
+
+if(!$form->are_set('message')){
+$this->ret(json_encode(array(0)));
+} else {
+
+Validator::get()->_sanitize('message', 'normal');
+
+$model=$this->model('chat');
+$model->save($form->field('message'));
+
+}
+
+}
+
+
+
 }

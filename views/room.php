@@ -10,7 +10,7 @@
 
 <div class='chat'>
 <div class='chat-head'>Room chatbox</div>
-<div class='chat-body'></div>
+<div class='chat-body'><div class='mini-loader'></div></div>
 <div class='chat-bar'>
 <form>
 <input type='text' class='chat-mbar' placeholder='Your message'/>

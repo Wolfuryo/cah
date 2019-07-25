@@ -581,3 +581,20 @@ padding:5px;
 .chat-bar>form{
 background:none;
 }
+.mini-loader{
+display:table;
+width:10px;
+height:10px;
+border:4px solid white;
+border-left-color:var(--primary);
+border-right-color:var(--primary);
+border-radius:100%;
+top:10px;
+left:10px;
+padding:5px;
+transform:rotate(0deg);
+animation:1s linear infinite load;
+}
+.chat-body{
+overflow:auto;
+}

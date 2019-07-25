@@ -52,12 +52,14 @@ $this->ret(json_encode(array($data, $users)));
 }
 
 
-public function chat(){
+public function chat($room_id=0){
+
+if($room_id===0 || !(Validator::get()->number($room_id) && Validator::get()->positive($room_id))){
 
 $form=Form::get();
 
 if(!$form->are_set('message')){
-$this->ret(json_encode(array(0)));
+$this->ret(json_encode(0));
 } else {
 
 Validator::get()->_sanitize('message', 'normal');
@@ -65,8 +67,16 @@ Validator::get()->_sanitize('message', 'normal');
 $model=$this->model('chat');
 $model->save($form->field('message'));
 
+$this->ret(json_encode(1));
+
 }
 
+} else {
+
+$model=$this->model('chat');
+$this->ret(json_encode($model->get($room_id)));
+
+}
 }
 
 

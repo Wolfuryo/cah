@@ -11,6 +11,9 @@ $this->view('rooms', $data);
 
 public function create(){
 if(!_user::get()->_logged()) Utils::get()->redirect('/rooms');
+if(_user::get()->prop('room')!==-1){
+Utils::get()->redirect('/rooms/error');
+}
 $error=0;
 $data=array();
 $form=Form::get();
@@ -52,5 +55,19 @@ $data=array_merge($data, array('error'=>$error));
 }
 $this->view('rooms.create', $data);
 }
+
+
+
+public function error(){
+
+$model=$this->model('room');
+$rid=_user::get()->prop('room');
+$name=$model->get($rid)['name'];
+
+$this->view('room.error', array('rid'=>$rid, 'rname'=>$name));
+
+}
+
+
 
 }

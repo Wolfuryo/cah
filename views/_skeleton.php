@@ -22,7 +22,7 @@
 {% endif %}
 
 {% if user.logged %}
-<a href='/user/{{ user.id }}' class='con-as'>Connected as {{ user.name }}</a>
+<a href='/user/' class='con-as'>Connected as {{ user.name }}</a>
 <a href='/user/logout'>Logout</a>
 {% endif %}
 

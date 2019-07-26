@@ -22,12 +22,12 @@ $uroom=_user::get()->prop('room');
 
 if($uroom===-1){
 $model->add_current_user($id);
-$viewdata['added']=1;
+$viewdata['ustate']=1;
 } else {
 if($uroom!==$id && $uroom!==-1){
-$viewdata['added']=2;
+$viewdata['ustate']=2;
 } else {
-$viewdata['added']=3;
+$viewdata['ustate']=3;
 }
 }
 
@@ -44,5 +44,13 @@ $model->update_current_user_time();
 $this->view('room', $viewdata);
 
 }
+
+
+public function error(){
+
+$this-view('room.error');
+
+}
+
 
 }

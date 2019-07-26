@@ -80,5 +80,26 @@ $this->ret(json_encode($model->get($room_id)));
 }
 
 
+public function game(){
+
+$form=Form::get();
+if($form->are_set('op', 'room')){
+
+$v=Validator::get();
+$v->sanitize(array(
+'op'=>'normal',
+'room'=>'normal',
+));
+
+$model=$this->model('room');
+
+if($form->field('op')==='join'){
+$this->ret(array('state'=>$model->join($form->field('room'))));
+}
+
+}
+
+}
+
 
 }

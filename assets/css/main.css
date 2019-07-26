@@ -273,22 +273,23 @@ width:100%;
 }
 /*Rooms*/
 .room{
-display:inline-flex;
-width:calc(25% - 4px);
-background:var(--primary);
 padding:10px;
-height:100px;
-justify-content:center;
-align-items:center;
-flex-direction:column;
+display:inline-table;
+background:var(--primary);
+width:calc(25%);
 color:white;
-margin:2px;
+border-right:2px solid #f2f2f2;
+border-top: 2px solid #f2f2f2;
+}
+.room:nth-child(4n){
+border-right:none;
+}
+.room:hover{
+box-shadow:inset var(--shadow);
+background:var(--tertiary)
 }
 .room-name{
-font-size:30px;
-}
-.room:nth-child(2n+1){
-background:#00689A;
+font-size:20px;
 }
 .rc_info{
 padding:10px;
@@ -305,16 +306,6 @@ background:black;
 .r_create>a:hover{
 background:var(--primary);
 color:white;
-}
-.room:hover{
-transform:scalex(0.95);
-box-shadow:inset var(--shadow);
-}
-.room100{
-width:calc(100% - 4px);
-}
-.room50{
-width:calc(50% - 4px);
 }
 /*Admin link*/
 .admin-link{

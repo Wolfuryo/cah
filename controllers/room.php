@@ -41,6 +41,19 @@ $model->remove_user($id, $users[$i]['id']);
 
 $model->update_current_user_time();
 
+$model=$this->model('admincats');
+$viewdata['cats']=$model->get();
+
+if($data['state']===0 && (int)_user::get()->prop('id')===(int)$data['creator_id']){
+$viewdata['canstart']=1;
+} else {
+
+if($data['state']===0){
+$viewdata['canstart']=0;
+}
+
+}
+
 $this->view('room', $viewdata);
 
 }

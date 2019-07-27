@@ -92,10 +92,9 @@ $v->sanitize(array(
 ));
 
 $model=$this->model('room');
+$op=$form->field('op');
 
-if($form->field('op')==='join'){
-$this->ret(array('state'=>$model->join($form->field('room'))));
-}
+$this->ret(json_encode(array('state'=>$model->do($op, $form->field('room')))));
 
 }
 

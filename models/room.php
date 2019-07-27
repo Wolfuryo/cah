@@ -8,7 +8,7 @@ return $this->db->query('select count(*) from rooms where id=?', array($id))->fe
 
 public function get($id){
 
-return $this->db->query('select rooms.id, rooms.name, rooms.creator_id, users.name as creator_name from rooms left join users on users.id=rooms.creator_id where rooms.id=?', array($id))->fetch();
+return $this->db->query('select rooms.id, rooms.name, rooms.creator_id, rooms.state, users.name as creator_name from rooms left join users on users.id=rooms.creator_id where rooms.id=?', array($id))->fetch();
 
 }
 
@@ -29,12 +29,25 @@ public function update_current_user_time(){
 $this->db->query('update users set roomactiv=? where id=?', array(time(), \_user::get()->prop('id')));
 }
 
-public function join($room_id){
+public function do($op, $room_id){
 if($this->exists($room_id)){
-$this->db->query('update users set room=? where id=?', array($room_id, \_user::get()->prop('id')));
+switch($op){
+case 'join':return $this->join($room_id);break;
+case 'start':return $this->start($room_id);break;
+}
 return 1;
 }
 return 0;
+}
+
+public function join($room_id){
+$this->db->query('update users set room=? where id=?', array($room_id, \_user::get()->prop('id')));
+}
+
+public function start($room_id){
+if((int)$this->get($room_id)['creator_id']!==(int)\_user::get()->prop('id')) return 0;
+$this->db->query('update rooms set state=1 where id=?', array($room_id));
+return 1;
 }
 
 }

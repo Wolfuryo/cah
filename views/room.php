@@ -24,9 +24,24 @@
 
 {% if ustate==2 %}
 
-<div class='room-ain'>You are already a part of room <a href='/room/{{ rid }}'>{{ rname }}</a>. If you were in a game, you will lose points. If you were a game master, you will lose double the ammount of points. Click <a href=''>here</a> to leave that room and join this one.</div>
+<div class='room-ain'>You are already a part of room <a href='/room/{{ rid }}'>{{ rname }}</a>. If you were in a game, you will lose points. If you were a game master, you will lose double the ammount of points. Click <a href='' class='room-join'>here</a> to leave that room and join this one.</div>
 
 {% endif %}
+
+
+{% if ustate!=2 and canstart==1 %}
+<div class='room-full'>
+<span>You are the game master</span>
+<span class='room-start'>Start the game</span>
+</div>
+{% endif %}
+
+<div class='choose'>
+{% for cat in cats %}
+<span class='choice' data-id='{{ cat.id }}'>{{ cat.name }}</span>
+{% endfor %}
+</div>
+
 </div>
 <div class='game-right'>
 <div class='game-users-h'>Players</div>

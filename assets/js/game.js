@@ -35,7 +35,21 @@ game.get();
 
 game.choices=[];
 game.choice=function(i){
-console.log(i);
+
+var id=parseInt(game.elems.choices[i].getAttribute('data-id'));
+var iid=game.choices.indexOf(id);
+if(iid!=-1){
+game.choices=game.choices.rem(iid);
+game.elems.choices[i].classList.remove('choosen');
+} else {
+
+if(iid==-1 && game.choices.length!=2){
+game.choices.push(id);
+game.elems.choices[i].classList.add('choosen');
+}
+
+}
+
 }
 
 game.joined=function(){

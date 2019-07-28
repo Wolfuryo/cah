@@ -674,3 +674,7 @@ font-size:25px;
 .choose-submit{
 display:table !important;
 }
+.choosen{
+color:var(--primary);
+font-weight:bold;
+}

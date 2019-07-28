@@ -14,6 +14,8 @@ join:query('.room-join'),
 start:query('.room-start'),
 pre:query('.room-full'),
 choices:_query('.choice'),
+choose:query('.choose'),
+submit_choices:query('.choose-submit'),	
 }
 game.update_rate=10000;
 game.requests=0;
@@ -25,6 +27,7 @@ game.update();
 if(game.requests===0){
 game.elems.loader.classList.add('loaded');
 game.elems.room.classList.add('game-visible');
+if(game.data.state===1) game.elems.choose.classList.add('choose-s');
 }
 game.requests++;
 setTimeout(function(){
@@ -34,6 +37,28 @@ game.get();
 }
 
 game.choices=[];
+
+game.handle_choices=function(){
+var len=game.choices.length;
+if(len<2){
+alert('You need to choose 2 of the categories');
+} else {
+if(len>2){
+location.reload();
+} else {
+
+post('/api/game', { 
+op:'choices',
+rid:game.id,
+data:game.choices
+}, function(data){
+console.log(data);
+})
+
+}
+}
+}
+
 game.choice=function(i){
 
 var id=parseInt(game.elems.choices[i].getAttribute('data-id'));
@@ -103,6 +128,12 @@ game.choice(i);
 })
 })(i);
 }
+}
+
+if(game.elems.submit_choices){
+listen(game.elems.submit_choices, 'click', function(){
+game.handle_choices();
+})
 }
 
 }

@@ -678,3 +678,11 @@ display:table !important;
 color:var(--primary);
 font-weight:bold;
 }
+.choose{
+position:absolute;
+top:-10000px;
+}
+.choose-s{
+position:relative;
+top:0px;
+}

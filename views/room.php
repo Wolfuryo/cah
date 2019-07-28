@@ -37,9 +37,13 @@
 {% endif %}
 
 <div class='choose'>
+<div class='choose-flex'>
+<div class='choose-exp'>Choose 2 categories to get questions from</div>
 {% for cat in cats %}
 <span class='choice' data-id='{{ cat.id }}'>{{ cat.name }}</span>
 {% endfor %}
+</div>
+<div class='choose-submit'>Submit your choices</div>
 </div>
 
 </div>

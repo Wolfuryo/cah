@@ -13,6 +13,7 @@ ulist:query('.game-users'),
 join:query('.room-join'),
 start:query('.room-start'),
 pre:query('.room-full'),
+choices:_query('.choice'),
 }
 game.update_rate=10000;
 game.requests=0;
@@ -30,6 +31,11 @@ setTimeout(function(){
 game.get();
 }, game.update_rate);
 });
+}
+
+game.choices=[];
+game.choice=function(i){
+console.log(i);
 }
 
 game.joined=function(){
@@ -53,18 +59,14 @@ alert('There was an error while trying to join the room');
 
 game.events=function(){
 if(game.elems.join){
-
 listen(game.elems.join, 'click', function(e){
 e.preventDefault();
 game.join();
 });
-
 }
 
 if(game.elems.start){
-
 listen(game.elems.start, 'click', function(e){
-
 post('/api/game', {
 op:'start',
 room:game.id,
@@ -75,10 +77,20 @@ game.started();
 alert('There was an error while attempting to start the game');
 }
 })
-
 })
-
 }
+
+if(game.elems.choices){
+var len=game.elems.choices.length, i=0;
+for(;i<len;i++){
+(function(i){
+listen(game.elems.choices[i], 'click', function(){
+game.choice(i);
+})
+})(i);
+}
+}
+
 }
 
 game.started=function(){

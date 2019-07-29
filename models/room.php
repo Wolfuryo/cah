@@ -29,11 +29,12 @@ public function update_current_user_time(){
 $this->db->query('update users set roomactiv=? where id=?', array(time(), \_user::get()->prop('id')));
 }
 
-public function do($op, $room_id){
+public function do($op, $room_id, $data=array()){
 if($this->exists($room_id)){
 switch($op){
 case 'join':return $this->join($room_id);break;
 case 'start':return $this->start($room_id);break;
+case 'choices':return $this->choices($room_id, $data);break;
 }
 return 1;
 }
@@ -49,5 +50,13 @@ if((int)$this->get($room_id)['creator_id']!==(int)\_user::get()->prop('id')) ret
 $this->db->query('update rooms set state=1 where id=?', array($room_id));
 return 1;
 }
+
+public function choices($room_id, $data){
+$this->db->query('update users set ucats=? where id=?', array(
+$data, \_user::get()->prop('id')
+));
+return 1;
+}
+
 
 }

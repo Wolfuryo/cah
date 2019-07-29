@@ -36,6 +36,21 @@ game.get();
 });
 }
 
+game.ably=null;
+game.send=function(message){
+game.ably.send(message);
+}
+
+game.abparse=function(message){
+console.log(0);
+game.get();
+}
+
+game.setup=function(){
+game.ably=new ab('game'+game.id, game.abparse);
+game.send('1');
+}
+
 game.choices=[];
 
 game.handle_choices=function(){
@@ -49,7 +64,7 @@ location.reload();
 
 post('/api/game', { 
 op:'choices',
-rid:game.id,
+room:game.id,
 data:game.choices
 }, function(data){
 console.log(data);
@@ -147,6 +162,7 @@ game.init=function(){
 game.id=urls.data[1];
 game.get();
 game.events();
+game.setup();
 }
 game.update=function(){
 game.elems.header.title.innerHTML=game.data.name;

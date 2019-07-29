@@ -7,4 +7,4 @@ if(ids.indexOf(i)===-1) result.push(this[i]);
 }
 
 return result;
-}
+};

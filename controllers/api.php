@@ -82,8 +82,6 @@ $this->ret(json_encode($model->get($room_id)));
 
 public function game(){
 
-var_dump($_POST['data']);
-
 $form=Form::get();
 if($form->are_set('op', 'room')){
 
@@ -96,7 +94,7 @@ $v->sanitize(array(
 $model=$this->model('room');
 $op=$form->field('op');
 
-$this->ret(json_encode(array('state'=>$model->do($op, $form->field('room')))));
+$this->ret(json_encode(array('state'=>$model->do($op, $form->field('room'), $form->field('data')))));
 
 }
 }

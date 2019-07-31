@@ -94,7 +94,14 @@ $v->sanitize(array(
 $model=$this->model('room');
 $op=$form->field('op');
 
+if($form->are_set('data')){
+
 $this->ret(json_encode(array('state'=>$model->do($op, $form->field('room'), $form->field('data')))));
+
+} else {
+$this->ret(json_encode(array('state'=>$model->do($op, $form->field('room')))));
+}
+
 
 }
 }

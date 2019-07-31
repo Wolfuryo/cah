@@ -31,7 +31,7 @@
 
 {% if ustate!=2 and canstart==1 %}
 <div class='room-full'>
-<span>You are the game master</span>
+<span>You are the game master. Once there are at least 2 players in the room, including you, you can start the game.</span>
 <span class='room-start'>Start the game</span>
 </div>
 {% endif %}

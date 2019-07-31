@@ -615,24 +615,27 @@ width:25%;
 .room-full{
 width:100%;
 height:100%;
-background:black;
 display:flex;
-color:white;
+color:var(--primary);
 justify-content:center;
 align-items:center;
-flex-direction:column;
 }
 .room-full span{
 margin:5px;
+}
+.room-full span:nth-child(1){
+font-size:30px;
+width:50%;
 }
 .room-start{
 background:var(--primary);
 padding:10px;
 cursor:pointer;
 border:2px solid var(--primary);
+color:white;
 }
 .room-start:hover{
-background:black;
+background:white;
 color:var(--primary);
 }
 /*Room:choose*/
